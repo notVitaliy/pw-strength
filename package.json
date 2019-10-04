@@ -1,6 +1,6 @@
 {
   "name": "pw-strength",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -30,5 +30,9 @@
     "password",
     "strength",
     "scale"
-  ]
+  ],
+  "dependencies": {
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0"
+  }
 }

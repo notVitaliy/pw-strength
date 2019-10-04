@@ -54,9 +54,18 @@ export const countSequence = (p: string, s: string) =>
 
 export const countRepeated = (p: string) =>
   Array.from(new Set(p.toLowerCase().split(''))).reduce((acc, c) => {
-    const countRegex = new RegExp(`[^${c}]`, 'g')
-    const count = p.replace(countRegex, '').length
-    return count > 1 ? acc + count : acc
+    try {
+      const countRegex = new RegExp(`[^${c}]`, 'g')
+      const count = p.replace(countRegex, '').length
+      return count > 1 ? acc + count : acc
+    } catch (e) {
+      if (e.message.includes('Unterminated character class')) {
+        const countRegex = new RegExp(`[^` + '\\' + `${c}]`, 'g')
+        const count = p.replace(countRegex, '').length
+        return count > 1 ? acc + count : acc
+      }
+      return acc
+    }
   }, 0)
 
 export const getNegStrength = (p: string) => {
