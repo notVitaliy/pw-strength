@@ -17,6 +17,7 @@
         "triple-equals": false,
         "curly": false,
         "array-type": false,
-        "no-bitwise": false
+        "no-bitwise": false,
+        "quotemark": [true, "single"]
     }
 }
